@@ -1,0 +1,25 @@
+13 tests from 4 test suites  
+
+tests from initialization
+    empty
+    withList
+    withDuplicates
+
+
+tests from insert
+    inEmpty
+    sequantially
+    duplicate
+ 
+
+tests from remove
+    single
+    sequentially
+    fromEmpty
+    invalidKey
+
+tests from find
+    inEmpty
+    invalidKey
+    validKey
+

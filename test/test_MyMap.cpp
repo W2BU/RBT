@@ -127,3 +127,27 @@ TEST(find, validKey)
     EXPECT_EQ(map.find(40), 2);
 }
 
+TEST(clear, nonEmpty)
+{
+    MyMap<int, int> map = {{55, 1}, {40, 2}, {65, 3}, {60, 4}, {75, 5}, {57, 6}};
+    map.clear();
+
+    std::vector<int> expectedKeysList = {};
+    EXPECT_EQ(expectedKeysList, map.get_keys());
+
+    std::vector<int> expectedValuesList = {};
+    EXPECT_EQ(expectedValuesList, map.get_values());
+}
+
+TEST(clear, empty)
+{
+    MyMap<int, int> map;
+    map.clear();
+    
+    std::vector<int> expectedKeysList = {};
+    EXPECT_EQ(expectedKeysList, map.get_keys());
+
+    std::vector<int> expectedValuesList = {};
+    EXPECT_EQ(expectedValuesList, map.get_values());
+}
+

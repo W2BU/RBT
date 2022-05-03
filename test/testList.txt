@@ -23,3 +23,7 @@ tests from find
     invalidKey
     validKey
 
+tests from clear
+    nonEmpty
+    empty
+

@@ -114,7 +114,7 @@ template <typename Key, typename Value>
 MyMap<Key, Value>::~MyMap()
 {
     destroyRecursive(this->root);
-    root = nil;
+    delete nil;
 }
 
 //  Inserts a node with the given key and value in the tree.

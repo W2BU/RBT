@@ -41,6 +41,8 @@ TEST(insert, inEmpty)
 
     map.insert(55, 1);
 
+    EXPECT_EQ(map.find(55), 1);
+
     std::vector<int> expectedKeysList = {55};
     EXPECT_EQ(expectedKeysList, map.get_keys());
 
@@ -76,6 +78,8 @@ TEST(remove, single)
     MyMap<int, int> map = {{55, 1}, {40, 2}, {65, 3}, {60, 4}, {75, 5}, {57, 6}};
     map.remove(40);
 
+    EXPECT_THROW(map.find(40), std::invalid_argument);
+
     std::vector<int> expectedKeysList = {55, 60, 57, 75, 65};
     EXPECT_EQ(expectedKeysList, map.get_keys());
 
@@ -89,6 +93,10 @@ TEST(remove, sequentially)
     map.remove(55); // root
     map.remove(60);
     map.remove(75);
+
+    EXPECT_THROW(map.find(55), std::invalid_argument);
+    EXPECT_THROW(map.find(60), std::invalid_argument);
+    EXPECT_THROW(map.find(75), std::invalid_argument);
 
     std::vector<int> expectedKeysList = {40, 65, 57};
     EXPECT_EQ(expectedKeysList, map.get_keys());

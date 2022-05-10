@@ -392,7 +392,7 @@ void MyMap<Key, Value>::get_keysHelper(const TreeNode<Key, Value>* node, LinkedL
 template <typename Key, typename Value>
 LinkedList<Value> MyMap<Key, Value>::get_values()
 {
-    LinkedList<Key> result = {};
+    LinkedList<Value> result = {};
     get_valuesHelper(this->root, result);
     return result;
 }

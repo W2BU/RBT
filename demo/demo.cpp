@@ -1,5 +1,4 @@
 #include <MyMap.cpp>
-#include <vector>
 
 int main() {
     MyMap<int, int> map = {{55, 55}, {40, 40}, {65, 65}, {60, 60}, {75, 75}};
@@ -14,12 +13,12 @@ int main() {
     std::cout << "\nKeys after removing of 40:\n";
     map.printKeys();
     std::cout << "\nList of keys:\n";
-    std::vector<int> keys = map.get_keys();
-    for (auto i: keys) std::cout << i << ' '; 
+    LinkedList<int> keys = map.get_keys();
+    for (int i = 0; i < keys.get_size(); i++) std::cout << keys.at(i) << ' ';
     std::cout << "\nList of values:\n";
-    std::vector<int> values = map.get_values();
-    for (auto i: values) std::cout << i << ' ';
-    std::cout << "\nAttempted to find key 45:\n";
+    LinkedList<int> values = map.get_values();
+    for (int i = 0; i < values.get_size(); i++) std::cout << values.at(i) << ' ';
+    std::cout << "\n\n";
     try {
         map.find(45);
     } catch (const std::invalid_argument& error) {

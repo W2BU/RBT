@@ -2,9 +2,9 @@
 #define MyMap_H
 
 #include <stdexcept>
-#include <vector>
 #include <string>
 #include <iostream>
+#include <LinkedList.cpp>
 
 template <typename Key, typename Value> class TreeNode;
 template <typename Key, typename Value> class MyMap;
@@ -65,8 +65,8 @@ class MyMap
         void remove(Key key);
         Value find(Key key);
         void clear();
-        std::vector<Key> get_keys();
-        std::vector<Value> get_values();
+        LinkedList<Key> get_keys();
+        LinkedList<Value> get_values();
         void printKeys();
         void printValues();
 
@@ -81,8 +81,8 @@ class MyMap
         void rightRotate(TreeNode<Key, Value>* x);
         void transplant(TreeNode<Key, Value>* child, TreeNode<Key, Value>* deletion);
         TreeNode<Key, Value>* minimum(TreeNode<Key, Value>* start);
-        void get_keysHelper(const TreeNode<Key, Value>* node, std::vector<Key>& result);
-        void get_valuesHelper(const TreeNode<Key, Value>* node, std::vector<Key>& result);
+        void get_keysHelper(const TreeNode<Key, Value>* node, LinkedList<Key>& result);
+        void get_valuesHelper(const TreeNode<Key, Value>* node, LinkedList<Key>& result);
         void printKeysHelper(const std::string& prefix, const TreeNode<Key, Value>* node, bool isLeft);
         void printKeysHelper(const TreeNode<Key, Value>* node);
         void printValuesHelper(const std::string& prefix, const TreeNode<Key, Value>* node, bool isLeft);
@@ -370,16 +370,16 @@ void MyMap<Key, Value>::clear()
 
 // Returns the list of keys in post-order
 template <typename Key, typename Value>
-std::vector<Key> MyMap<Key, Value>::get_keys()
+LinkedList<Key> MyMap<Key, Value>::get_keys()
 {
-    std::vector<Key> result = {};
+    LinkedList<Key> result = {};
     get_keysHelper(this->root, result);
     return result;
 }
 
 
 template <typename Key, typename Value>
-void MyMap<Key, Value>::get_keysHelper(const TreeNode<Key, Value>* node, std::vector<Key>& result)
+void MyMap<Key, Value>::get_keysHelper(const TreeNode<Key, Value>* node, LinkedList<Key>& result)
 {
     if (node != nil) {
         get_keysHelper(node->left, result);
@@ -390,15 +390,15 @@ void MyMap<Key, Value>::get_keysHelper(const TreeNode<Key, Value>* node, std::ve
 
 // Returns the list of values in post-order
 template <typename Key, typename Value>
-std::vector<Value> MyMap<Key, Value>::get_values()
+LinkedList<Value> MyMap<Key, Value>::get_values()
 {
-    std::vector<Key> result = {};
+    LinkedList<Key> result = {};
     get_valuesHelper(this->root, result);
     return result;
 }
 
 template <typename Key, typename Value>
-void MyMap<Key, Value>::get_valuesHelper(const TreeNode<Key, Value>* node, std::vector<Key>& result)
+void MyMap<Key, Value>::get_valuesHelper(const TreeNode<Key, Value>* node, LinkedList<Key>& result)
 {
     if (node != nil) {
         get_valuesHelper(node->left, result);

@@ -82,7 +82,7 @@ class MyMap
         void transplant(TreeNode<Key, Value>* child, TreeNode<Key, Value>* deletion);
         TreeNode<Key, Value>* minimum(TreeNode<Key, Value>* start);
         void get_keysHelper(const TreeNode<Key, Value>* node, LinkedList<Key>& result);
-        void get_valuesHelper(const TreeNode<Key, Value>* node, LinkedList<Key>& result);
+        void get_valuesHelper(const TreeNode<Key, Value>* node, LinkedList<Value>& result);
         void printKeysHelper(const std::string& prefix, const TreeNode<Key, Value>* node, bool isLeft);
         void printKeysHelper(const TreeNode<Key, Value>* node);
         void printValuesHelper(const std::string& prefix, const TreeNode<Key, Value>* node, bool isLeft);

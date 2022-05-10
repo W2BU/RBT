@@ -398,7 +398,7 @@ LinkedList<Value> MyMap<Key, Value>::get_values()
 }
 
 template <typename Key, typename Value>
-void MyMap<Key, Value>::get_valuesHelper(const TreeNode<Key, Value>* node, LinkedList<Key>& result)
+void MyMap<Key, Value>::get_valuesHelper(const TreeNode<Key, Value>* node, LinkedList<Value>& result)
 {
     if (node != nil) {
         get_valuesHelper(node->left, result);
